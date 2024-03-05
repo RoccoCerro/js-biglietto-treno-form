@@ -11,8 +11,8 @@
 const distanzaElement = document.getElementById("distanza");
 console.log(distanzaElement);
 
-const anniElement = document.getElementById("anni");
-console.log(anniElement);
+const selectAnniElement = document.getElementById("anni");
+console.log(selectAnniElement);
 
 // Creo una variabile per selezionare il bottone
 const submitElement = document.getElementById("submit");
@@ -20,34 +20,33 @@ console.log(submitElement);
 
 // utilizzero la funzione ascolta il click sul bottone per prendere i dati in input e restituire il risultato
 submitElement.addEventListener('click', function(){
-    const anni = anniElement.value;
+    let anni = selectAnniElement.selectedOptions;
     console.log("Anni", anni);
 
     const distanza = distanzaElement.value;
     console.log("Distanza", distanza);
 
-    if((!isNaN(anni)) && (!isNaN(distanza)) && (anni > 0) && (distanza > 0)){
+    let prezzoBase, sconto, prezzoFinale;
+
+    prezzoBase = (distanza * 0.21);
+    console.log("Prezzo base ", prezzoBase);
+
+    if((!isNaN(distanza)) && (distanza > 0)){
         // SE il cliente ha meno di 18 anni moltiplico i km inseriti dal cliente per 0,21€ e sottraggo il 20%
-        if(anni<18){
-            let valore = (distanza * 0.21);
-            let sconto = ((valore/100) * 20);
-            prezzo = valore - sconto;
-            console.log(prezzo.toFixed(2));
+        if(anni = "minorenne"){
+            sconto = ((prezzoBase/100) * 20);
         }
         // SE il cliente ha più di 65 anni moltiplico i km inseriti dal cliente per 0,21€ e sottraggo il 40%
-        else if(anni>65){
-            let valore = (distanza * 0.21);
-            let sconto = ((valore/100) * 40);
-            prezzo = valore - sconto;
-            console.log(prezzo.toFixed(2));
+        else if(anni = "over65"){
+            sconto = ((prezzoBase/100) * 40);
         }
         // ALTRIMENTI moltiplico i km per inseriti dal cliente per 0,21€
         else{
-            let valore = (distanza * 0.21);
-            prezzo = valore
-            console.log(prezzo.toFixed(2));
+            sconto = 0;
         }
 
+        prezzoFinale = (prezzoBase - sconto)
+        console.log("Prezzo Finale", prezzoFinale.toFixed(2));
     }
     else{
         alert("ATTENZIONE! C'è un errore!")
