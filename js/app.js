@@ -20,18 +20,21 @@ console.log(selectAnniElement);
 const stampaNameElement = document.getElementById("pag-nome-passeggero");
 console.log(stampaNameElement);
 
-const colPrezzoElement = document.querySelector(".ms_col_prezzo")
-console.log(colPrezzoElement)
+const colPrezzoElement = document.querySelector(".ms_col_prezzo");
+console.log(colPrezzoElement);
 
-const colScontoElement = document.querySelector(".ms_col_sconto")
-console.log(colScontoElement)
+const colScontoElement = document.querySelector(".ms_col_sconto");
+console.log(colScontoElement);
 
-const colFinaleElement = document.querySelector(".ms_col_finale")
-console.log(colFinaleElement)
+const colFinaleElement = document.querySelector(".ms_col_finale");
+console.log(colFinaleElement);
 
 // Creo una variabile per selezionare il bottone
 const submitElement = document.getElementById("submit");
 console.log(submitElement);
+
+const submitClearElement = document.getElementById("submit-clear");
+console.log(submitClearElement);
 
 // utilizzero la funzione ascolta il click sul bottone per prendere i dati in input e restituire il risultato
 submitElement.addEventListener('click', function(){
@@ -76,5 +79,8 @@ submitElement.addEventListener('click', function(){
 }
 )
 
-
-
+submitClearElement.addEventListener('click', function(){
+    nameElement.value = "";
+    
+}
+)
