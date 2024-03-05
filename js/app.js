@@ -17,6 +17,18 @@ console.log(distanzaElement);
 const selectAnniElement = document.getElementById("anni");
 console.log(selectAnniElement);
 
+const stampaNameElement = document.getElementById("pag-nome-passeggero");
+console.log(stampaNameElement);
+
+const colPrezzoElement = document.querySelector(".ms_col_prezzo")
+console.log(colPrezzoElement)
+
+const colScontoElement = document.querySelector(".ms_col_sconto")
+console.log(colScontoElement)
+
+const colFinaleElement = document.querySelector(".ms_col_finale")
+console.log(colFinaleElement)
+
 // Creo una variabile per selezionare il bottone
 const submitElement = document.getElementById("submit");
 console.log(submitElement);
@@ -51,9 +63,10 @@ submitElement.addEventListener('click', function(){
         prezzoFinale = (prezzoBase - sconto);
         console.log("Prezzo Finale", prezzoFinale.toFixed(2));
 
-        const stampaNameElement = document.getElementById("pag-nome-passeggero");
         stampaNameElement.innerHTML += "<p>" + nameElement.value + "</p>";
-
+        colPrezzoElement.innerHTML += "<span>" + prezzoBase.toFixed(2) + "€" + "</span>"
+        colScontoElement.innerHTML += "<span>" + sconto.toFixed(2) + "€" + "</span>"
+        colFinaleElement.innerHTML += "<span>" + prezzoFinale.toFixed(2) + "€" + "</span>"
     }
     else{
         alert("ATTENZIONE! C'è un errore!")
