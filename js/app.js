@@ -46,7 +46,9 @@ submitElement.addEventListener('click', function(){
     prezzoBase = (distanza * 0.21);
     console.log("Prezzo base ", prezzoBase);
 
-    if((!isNaN(distanza)) && (distanza > 0)){
+    let name = nameElement.value
+
+    if((!isNaN(distanza)) && (distanza > 0) && (name != "")){
         // SE il cliente ha meno di 18 anni moltiplico i km inseriti dal cliente per 0,21€ e sottraggo il 20%
         if(anni === "minorenne"){
             sconto = ((prezzoBase/100) * 20);
@@ -63,7 +65,7 @@ submitElement.addEventListener('click', function(){
         prezzoFinale = (prezzoBase - sconto);
         console.log("Prezzo Finale", prezzoFinale.toFixed(2));
 
-        stampaNameElement.innerHTML += "<p>" + nameElement.value + "</p>";
+        stampaNameElement.innerHTML += "<p>" + name + "</p>";
         colPrezzoElement.innerHTML += "<span>" + prezzoBase.toFixed(2) + "€" + "</span>"
         colScontoElement.innerHTML += "<span>" + sconto.toFixed(2) + "€" + "</span>"
         colFinaleElement.innerHTML += "<span>" + prezzoFinale.toFixed(2) + "€" + "</span>"
