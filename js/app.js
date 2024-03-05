@@ -17,24 +17,24 @@ console.log(distanzaElement);
 const selectAnniElement = document.getElementById("anni");
 console.log(selectAnniElement);
 
-const stampaNameElement = document.getElementById("pag-nome-passeggero");
+const colPrice = document.getElementById("col_price");
+console.log(colPrice);
+
+const colSconto = document.getElementById("col_sconto");
+console.log(colSconto);
+
+const colTotal = document.getElementById("col_total");
+console.log(colTotal);
+
+const stampaNameElement = document.getElementById("col_name");
 console.log(stampaNameElement);
-
-const colPrezzoElement = document.querySelector(".ms_col_prezzo");
-console.log(colPrezzoElement);
-
-const colScontoElement = document.querySelector(".ms_col_sconto");
-console.log(colScontoElement);
-
-const colFinaleElement = document.querySelector(".ms_col_finale");
-console.log(colFinaleElement);
 
 // Creo una variabile per selezionare il bottone
 const submitElement = document.getElementById("submit");
 console.log(submitElement);
 
-const submitClearElement = document.getElementById("submit-clear");
-console.log(submitClearElement);
+// const submitClearElement = document.getElementById("submit-clear");
+// console.log(submitClearElement);
 
 // utilizzero la funzione ascolta il click sul bottone per prendere i dati in input e restituire il risultato
 submitElement.addEventListener('click', function(){
@@ -68,19 +68,13 @@ submitElement.addEventListener('click', function(){
         prezzoFinale = (prezzoBase - sconto);
         console.log("Prezzo Finale", prezzoFinale.toFixed(2));
 
-        stampaNameElement.innerHTML += "<p>" + name + "</p>";
-        colPrezzoElement.innerHTML += "<span>" + prezzoBase.toFixed(2) + "€" + "</span>"
-        colScontoElement.innerHTML += "<span>" + sconto.toFixed(2) + "€" + "</span>"
-        colFinaleElement.innerHTML += "<span>" + prezzoFinale.toFixed(2) + "€" + "</span>"
+        colPrice.innerHTML = prezzoBase.toFixed(2) + " €"
+        colSconto.innerHTML = sconto.toFixed(2) + " €"
+        colTotal.innerHTML = prezzoFinale.toFixed(2) + " €"
+        stampaNameElement.innerHTML = name;
     }
     else{
         alert("ATTENZIONE! C'è un errore!")
     }
-}
-)
-
-submitClearElement.addEventListener('click', function(){
-    nameElement.value = "";
-    
 }
 )

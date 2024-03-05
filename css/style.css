@@ -1,0 +1,27 @@
+body{
+    .archivo-black-regular {
+        font-family: "Archivo Black", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }      
+}
+
+.ms_page_main{
+    background-image: url(../img/Treno.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.ms_section_preventive{
+    padding: 70px 0;
+
+    & h1{
+        padding: 15px;
+        color: rgba(0, 0, 0, 0.63);
+    }
+}
+
+.ms_card_ticket{
+    background-color: white;
+    height: 500px;
+}
