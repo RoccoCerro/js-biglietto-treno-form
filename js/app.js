@@ -8,6 +8,9 @@
 // va applicato uno sconto del 40% per gli over 65.
 
 // Creo due variabili per selezionarmi le caselle di input da cui riceverò i dati
+const nameElement = document.getElementById("name");
+console.log(nameElement);
+
 const distanzaElement = document.getElementById("distanza");
 console.log(distanzaElement);
 
@@ -20,7 +23,7 @@ console.log(submitElement);
 
 // utilizzero la funzione ascolta il click sul bottone per prendere i dati in input e restituire il risultato
 submitElement.addEventListener('click', function(){
-    let anni = selectAnniElement.selectedOptions;
+    let anni = selectAnniElement.value;
     console.log("Anni", anni);
 
     const distanza = distanzaElement.value;
@@ -33,11 +36,11 @@ submitElement.addEventListener('click', function(){
 
     if((!isNaN(distanza)) && (distanza > 0)){
         // SE il cliente ha meno di 18 anni moltiplico i km inseriti dal cliente per 0,21€ e sottraggo il 20%
-        if(anni = "minorenne"){
+        if(anni === "minorenne"){
             sconto = ((prezzoBase/100) * 20);
         }
         // SE il cliente ha più di 65 anni moltiplico i km inseriti dal cliente per 0,21€ e sottraggo il 40%
-        else if(anni = "over65"){
+        else if(anni === "over65"){
             sconto = ((prezzoBase/100) * 40);
         }
         // ALTRIMENTI moltiplico i km per inseriti dal cliente per 0,21€
@@ -45,8 +48,12 @@ submitElement.addEventListener('click', function(){
             sconto = 0;
         }
 
-        prezzoFinale = (prezzoBase - sconto)
+        prezzoFinale = (prezzoBase - sconto);
         console.log("Prezzo Finale", prezzoFinale.toFixed(2));
+
+        const stampaNameElement = document.getElementById("pag-nome-passeggero");
+        stampaNameElement.innerHTML += "<p>" + nameElement.value + "</p>";
+
     }
     else{
         alert("ATTENZIONE! C'è un errore!")
