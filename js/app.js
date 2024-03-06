@@ -29,6 +29,8 @@ console.log(colTotal);
 const stampaNameElement = document.getElementById("col_name");
 console.log(stampaNameElement);
 
+const ticket = document.querySelector(".ms_section_ticket");
+
 // Creo una variabile per selezionare il bottone
 const submitElement = document.getElementById("submit");
 console.log(submitElement);
@@ -72,6 +74,7 @@ submitElement.addEventListener('click', function(){
         colSconto.innerHTML = sconto.toFixed(2) + " €"
         colTotal.innerHTML = prezzoFinale.toFixed(2) + " €"
         stampaNameElement.innerHTML = name;
+        ticket.classList.remove("d-none")
     }
     else{
         alert("ATTENZIONE! C'è un errore!")
