@@ -1,6 +1,7 @@
 input, select{
     border: none;
     border-radius: 5px;
+    outline: none;
 }
 
 img{
